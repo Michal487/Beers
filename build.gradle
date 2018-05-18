@@ -30,5 +30,6 @@ ext {
     butterknife = "8.8.1"
     timber = "4.6.1"
     support = "27.1.1"
+    dagger2 = "2.16"
 }
 
