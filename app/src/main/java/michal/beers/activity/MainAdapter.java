@@ -21,7 +21,13 @@ import michal.beers.data.Beer;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private List<Beer> beers = new ArrayList<>();
+    private List<Beer> beerList = new ArrayList<>();
+
+    public void updateBeers(List<Beer> beers) {
+        beerList.clear();
+        beerList.addAll(beers);
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -34,12 +40,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.setup(beers.get(position));
+        holder.setup(beerList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return beers.size();
+        return beerList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -62,7 +68,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         void setup(Beer beer) {
 
             Glide.with(itemView.getContext())
-                    .load(beer.getImageUrl().getImageUrl())
+                    .load(beer.getImageUrl())
                     .into(imageView);
 
             textView_title.setText(beer.getName());
