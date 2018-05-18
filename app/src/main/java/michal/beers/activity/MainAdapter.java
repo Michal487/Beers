@@ -1,7 +1,6 @@
 package michal.beers.activity;
 
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,8 +55,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         @BindView(R.id.item_title)
         TextView textView_title;
 
-        @BindView(R.id.item_description)
-        TextView textView_description;
+        @BindView(R.id.item_tagline)
+        TextView textView_tagline;
 
 
         public ViewHolder(View itemView) {
@@ -73,7 +72,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
             textView_title.setText(beer.getName());
 
-            textView_description.setText(beer.getDescription());
+            textView_tagline.setText(beer.getTagline());
         }
 
     }
