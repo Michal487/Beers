@@ -19,10 +19,10 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class BeerActivity extends AppCompatActivity implements BeerContract.View {
 
-    private MainContract.Presenter presenter;
-    private MainAdapter adapter;
+    private BeerContract.Presenter presenter;
+    private BeerAdapter adapter;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_beer);
         ButterKnife.bind(this);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
-        presenter = new MainPresenter(this, retrofit.create(Api.class));
+        presenter = new BeerPresenter(this, retrofit.create(Api.class));
 
-        adapter = new MainAdapter();
+        adapter = new BeerAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

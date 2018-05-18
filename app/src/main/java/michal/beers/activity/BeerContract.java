@@ -4,7 +4,7 @@ import java.util.List;
 
 import michal.beers.data.Beer;
 
-public interface MainContract {
+public interface BeerContract {
 
     interface View {
         void showError();

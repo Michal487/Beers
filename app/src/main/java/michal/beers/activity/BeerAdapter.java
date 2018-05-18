@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import michal.beers.R;
 import michal.beers.data.Beer;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
 
     private List<Beer> beerList = new ArrayList<>();
 

@@ -10,15 +10,15 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import michal.beers.api.Api;
 
-public class MainPresenter implements MainContract.Presenter, LifecycleObserver {
+public class BeerPresenter implements BeerContract.Presenter, LifecycleObserver {
 
-    private MainContract.View view;
+    private BeerContract.View view;
     private Api api;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
 
-    public MainPresenter(MainContract.View view, Api api) {
+    public BeerPresenter(BeerContract.View view, Api api) {
         this.view = view;
         this.api = api;
 
