@@ -25,8 +25,8 @@ public class BeerPresenter implements BeerContract.Presenter, LifecycleObserver 
         ((LifecycleOwner) this.view).getLifecycle().addObserver(this);
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    private void onCreate() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    private void onStart() {
         getBeer();
     }
 
