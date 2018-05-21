@@ -1,12 +1,11 @@
 package michal.beers.activity;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -16,11 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import michal.beers.BeerApplication;
 import michal.beers.R;
-import michal.beers.api.Api;
 import michal.beers.data.Beer;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BeerActivity extends AppCompatActivity implements BeerContract.View {
 
@@ -31,6 +26,9 @@ public class BeerActivity extends AppCompatActivity implements BeerContract.View
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R.id.beer_swipeRefresh)
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,8 @@ public class BeerActivity extends AppCompatActivity implements BeerContract.View
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        refreshLayout.setOnRefreshListener(()-> presenter.getBeer());
+
     }
 
     @Override
@@ -59,5 +59,6 @@ public class BeerActivity extends AppCompatActivity implements BeerContract.View
     @Override
     public void showData(List<Beer> beers) {
         adapter.updateBeers(beers);
+        refreshLayout.setRefreshing(false);
     }
 }
