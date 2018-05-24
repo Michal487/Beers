@@ -1,4 +1,4 @@
-package michal.beers.activity;
+package michal.beers.activity.beer;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
@@ -10,7 +10,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import michal.beers.api.Api;
 import michal.beers.dao.BeerDao;
-import michal.beers.data.Beer;
 
 public class BeerPresenter implements BeerContract.Presenter, LifecycleObserver {
 

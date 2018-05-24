@@ -1,4 +1,4 @@
-package michal.beers.activity;
+package michal.beers.activity.beer;
 
 import java.util.List;
 

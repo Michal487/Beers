@@ -2,8 +2,8 @@ package michal.beers.di;
 
 import dagger.Component;
 import michal.beers.ApplicationScope;
-import michal.beers.activity.BeerComponent;
-import michal.beers.activity.BeerModule;
+import michal.beers.activity.beer.BeerComponent;
+import michal.beers.activity.beer.BeerModule;
 
 @ApplicationScope
 @Component(modules = {AppModule.class, DataModule.class})
