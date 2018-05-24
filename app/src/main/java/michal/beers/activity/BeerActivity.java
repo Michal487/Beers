@@ -52,7 +52,6 @@ public class BeerActivity extends AppCompatActivity implements BeerContract.View
                 .plus(new BeerModule(this))
                 .inject(this);
 
-        presenter.getBeer();
 
         adapter = new BeerAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
