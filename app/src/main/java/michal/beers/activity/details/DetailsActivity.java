@@ -1,5 +1,6 @@
 package michal.beers.activity.details;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     public static final String KEY_BEER_ID = "beerId";
 
+    @BindView(R.id.details_viewPager)
+    ViewPager viewPager;
 
     @Inject
     DetailsContract.Presenter presenter;
@@ -35,6 +38,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
         presenter.setBeerId(getIntent().getStringExtra(KEY_BEER_ID));
 
+        setupViewPager();
+    }
+
+    private void setupViewPager() {
 
     }
 
