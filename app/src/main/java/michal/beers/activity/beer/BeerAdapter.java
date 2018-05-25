@@ -1,5 +1,6 @@
 package michal.beers.activity.beer;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import michal.beers.R;
+import michal.beers.activity.details.DetailsActivity;
 import michal.beers.data.Beer;
 
 public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
@@ -73,6 +75,12 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
             textView_title.setText(beer.getName());
 
             textView_tagline.setText(beer.getTagline());
+
+            itemView.setOnClickListener(view -> {
+                Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
+                intent.putExtra(DetailsActivity.KEY_BEER_ID, beer.getId());
+                itemView.getContext().startActivity(intent);
+            });
         }
 
     }

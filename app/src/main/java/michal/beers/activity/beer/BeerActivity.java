@@ -22,6 +22,7 @@ import michal.beers.data.Beer;
 
 public class BeerActivity extends AppCompatActivity implements BeerContract.View {
 
+
     @Inject
     BeerContract.Presenter presenter;
 
@@ -57,7 +58,7 @@ public class BeerActivity extends AppCompatActivity implements BeerContract.View
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        refreshLayout.setOnRefreshListener(()-> presenter.getBeer());
+        refreshLayout.setOnRefreshListener(() -> presenter.getBeer());
 
     }
 
