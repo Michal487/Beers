@@ -5,6 +5,7 @@ import java.util.List;
 import io.reactivex.Single;
 import michal.beers.data.Beer;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface Api {
 
@@ -13,5 +14,7 @@ public interface Api {
     @GET("beers")
     Single<List<Beer>> getBeers();
 
+    @GET("beers")
+    Single<List<Beer>> getDetailsForBeers(@Query("id") String beerId);
 
 }

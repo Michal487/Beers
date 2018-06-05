@@ -19,11 +19,7 @@ public interface BeerDao {
     @Insert
     void insert(List<Beer> beer);
 
-    @Delete
-    void delete(Beer beer);
-
-    @Update
-    int update(Beer beer);
-
+    @Query("SELECT * FROM Beer WHERE id= :id")
+    public abstract Beer getBeerById(String id);
 
 }

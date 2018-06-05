@@ -3,6 +3,7 @@ package michal.beers.activity.beer;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,8 +79,10 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
 
             itemView.setOnClickListener(view -> {
                 Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
+                Log.d("adapter", "intent from beerAdapter " + String.valueOf(beer.getId()));
                 intent.putExtra(DetailsActivity.KEY_BEER_ID, beer.getId());
                 itemView.getContext().startActivity(intent);
+
             });
         }
 

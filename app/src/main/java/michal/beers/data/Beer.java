@@ -2,27 +2,27 @@ package michal.beers.data;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 @Entity
 public class Beer {
 
+    @NonNull
     @PrimaryKey
-    private int id;
+    private String id;
     private String name;
     private String tagline;
     private String description;
     @SerializedName("image_url")
     private String imageUrl;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
