@@ -4,6 +4,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import michal.beers.api.Api;
+import michal.beers.dao.BeerDao;
 
 @Module
 public class DetailsModule {
@@ -16,8 +18,8 @@ public class DetailsModule {
 
     @Provides
     @Singleton
-    DetailsContract.Presenter provideDetailsPresenter() {
-        return new DatailsPresenter(view);
+    DetailsContract.Presenter provideDetailsPresenter(BeerDao beerDao) {
+        return new DetailsPresenter(view, beerDao);
     }
 
 }
